@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Electronics",
+    "description": "Devices and gadgets including mobile phones, laptops, and accessories."
+  },
+  {
+    "name": "Fashion",
+    "description": "Clothing, footwear, and accessories for men and women."
+  },
+  {
+    "name": "Home & Kitchen",
+    "description": "Furniture, appliances, and kitchen essentials."
+  },
+  {
+    "name": "Sports & Outdoors",
+    "description": "Fitness gear, outdoor equipment, and sportswear."
+  },
+  {
+    "name": "Beauty & Health",
+    "description": "Skincare, haircare, and wellness products."
+  }
+]
