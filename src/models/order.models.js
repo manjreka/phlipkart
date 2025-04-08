@@ -21,21 +21,22 @@ const orderSchema = new mongoose.Schema(
       ref: "Address",
       required: true,
     },
-    paymentInfo: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Payment",
-      required: true,
-      unique: true,
-    },
+    // paymentInfo: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "Payment",
+    //   required: true,
+    //   unique: true,
+    // },
     status: {
       type: String,
       required: true,
       enum: ["pending", "shipped", "delivered", "cancelled"],
       default: "pending",
     },
-    totalAmount: {
-      type: Number,
-      required: true,
+    billingDetails: {
+      orderedAmt: { type: Number, required: true },
+      gstAmt: { type: Number, required: true },
+      totalAmt: { type: Number, required: true },
     },
   },
   { timestamps: true }
