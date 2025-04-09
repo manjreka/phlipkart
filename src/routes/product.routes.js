@@ -31,8 +31,8 @@ router.delete(
   deleteProduct
 );
 
-router.get("/getProduct/:id", authenticateUser, getSingleProduct);
+router.get("/getProduct/:id", getSingleProduct);
 
-router.get("/getProducts", authenticateUser, getProducts);
+router.get("/getProducts", getProducts);
 
 module.exports = router;
