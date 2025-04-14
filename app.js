@@ -8,11 +8,19 @@ const cartRoutes = require("./src/routes/cart.routes");
 const orderRoutes = require("./src/routes/order.routes");
 const addressRoutes = require("./src/routes/address.routes");
 const paymentRoutes = require("./src/routes/payment.routes");
+const { stripeWebhookHandler } = require("./src/controller/payment.controller");
 
 connectDB();
 
 const app = express();
 app.use(cors());
+
+app.post(
+  "/api/payment/webhook",
+  express.raw({ type: "application/json" }),
+  stripeWebhookHandler
+);
+
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
