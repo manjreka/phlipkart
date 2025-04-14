@@ -7,6 +7,7 @@ const productRoutes = require("./src/routes/product.routes");
 const cartRoutes = require("./src/routes/cart.routes");
 const orderRoutes = require("./src/routes/order.routes");
 const addressRoutes = require("./src/routes/address.routes");
+const paymentRoutes = require("./src/routes/payment.routes");
 
 connectDB();
 
@@ -19,5 +20,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/address", addressRoutes);
+app.use("/api", paymentRoutes);
 
 module.exports = { app };

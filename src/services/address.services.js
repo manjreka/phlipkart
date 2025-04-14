@@ -17,9 +17,6 @@ const addAddressService = async (details) => {
 const getAddressService = async (userId) => {
   try {
     const listAddress = await Address.find({ userId }).select("-userId");
-    if (listAddress.length === 0) {
-      return "No address added yet";
-    }
     return listAddress;
   } catch (err) {
     throw err;
