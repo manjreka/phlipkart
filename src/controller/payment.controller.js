@@ -22,7 +22,7 @@ const makePaymentUsingStrip = async (req, res) => {
     const newOrder = await Order.create({
       userId,
       products: [], // You can link Cart or copy cart data here
-      shippingAddress: "662adexampleid", // Get from req later
+      shippingAddress: "67f4b677df9591e00403127f", // Get from req later
       status: "pending",
       billingDetails: {
         orderedAmt,

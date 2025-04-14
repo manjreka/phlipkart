@@ -20,6 +20,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/address", addressRoutes);
-app.use("/api", paymentRoutes);
+app.use("/api/payment", paymentRoutes);
 
 module.exports = { app };
