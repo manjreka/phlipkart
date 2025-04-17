@@ -10,19 +10,30 @@ const makePaymentUsingStrip = async (req, res) => {
     const userId = decoded.id;
     const cartDetails = req.body;
 
+    const { products, shippingAddress } = cartDetails;
+
     // Calculate order summary
-    const orderedAmt = cartDetails.reduce(
+    const orderedAmt = products.reduce(
       (total, item) => total + item.price * item.qty,
       0
     );
     const gstAmt = Number((orderedAmt * 0.18).toFixed(2));
     const totalAmt = orderedAmt + gstAmt;
 
+    // from cart details extract only productIds and qty
+
+    const data = products.map((each) => ({
+      productId: each.id,
+      quantity: each.qty,
+    }));
+
+    // console.log(data, "***************");
+
     // Create order
     const newOrder = await Order.create({
       userId,
-      products: [], // You can link Cart or copy cart data here
-      shippingAddress: "67f4b677df9591e00403127f", // Get from req later
+      products: data,
+      shippingAddress,
       status: "pending",
       billingDetails: {
         orderedAmt,
@@ -33,7 +44,7 @@ const makePaymentUsingStrip = async (req, res) => {
 
     console.log("order created successfully!!");
 
-    const lineItems = cartDetails.map((item) => ({
+    const lineItems = products.map((item) => ({
       price_data: {
         currency: "inr",
         product_data: {
