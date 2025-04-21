@@ -37,7 +37,8 @@ const userLoginServices = async (userDetails) => {
       return "passwords not matching";
     }
     const token = generateToken(existingUser);
-    return token;
+    const info = { token, userId: existingUser._id };
+    return info;
   } catch (err) {
     throw err;
   }

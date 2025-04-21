@@ -11,7 +11,7 @@ const loginUser = async (req, res) => {
     const response = await userLoginServices(req.body);
     return res
       .status(200)
-      .json({ token: response, message: "User Logged in Successfully!!" });
+      .json({ info: response, message: "User Logged in Successfully!!" });
   } catch (err) {
     if (err.isJoi) {
       return res.status(400).json({ error: err.details[0].message });
