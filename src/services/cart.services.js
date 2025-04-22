@@ -4,7 +4,7 @@ const configureCartServices = async (userId, cartDetails) => {
   try {
     const existingCart = await Cart.findOne({ userId });
     const products = cartDetails?.products;
-    const cartData = { userId, products };
+    const cartData = { userId, products: cartDetails };
     if (!existingCart) {
       await Cart.create(cartData);
       return "Cart created successfully!!";
